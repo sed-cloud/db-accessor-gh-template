@@ -44,6 +44,9 @@ jobs:
       - name: Rebuild contents using cookiecutter
         env:
           INFO: ${{ steps.fetch-repo-and-user-details.outputs.result }}
+          GH_PAT: ${{ secrets.GH_PAT }}
+          PYPI_USERNAME: ${{ secrets.PYPI_USERNAME }}
+          PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
         run: |
           # Delete this workflow:
           rm -rf .github

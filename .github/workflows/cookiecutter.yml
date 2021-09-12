@@ -54,7 +54,7 @@ jobs:
           # Run cookiecutter
           cookiecutter gh:sed-cloud/db-accessor-template --no-input \
             package_name=$REPO_NAME \
-            database_name=${$REPO_NAME//-/_}
+            database_name=$REPO_NAME
           
           # TODO: figure out how to do cookiecutter with secrets (probably variable name injection) 
           

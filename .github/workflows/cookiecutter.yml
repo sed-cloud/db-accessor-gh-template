@@ -42,6 +42,7 @@ jobs:
             console.log(result)
             return result
       - name: Rebuild contents using cookiecutter
+        shell: bash
         env:
           INFO: ${{ steps.fetch-repo-and-user-details.outputs.result }}
           GH_PAT: ${{ secrets.GH_PAT }}

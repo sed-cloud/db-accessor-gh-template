@@ -53,7 +53,8 @@ jobs:
           export REPO_NAME=$(echo $INFO | jq -r '.repository.name')
           
           # login to gh cli
-          gh auth login --with-token ${{ secrets.GH_PAT }}
+          echo ${{ secrets.GH_PAT }} > ghpat.txt
+          gh auth login --with-token < ghpat.txt
           
           # Run cookiecutter
           cookiecutter gh:sed-cloud/db-accessor-template --no-input \

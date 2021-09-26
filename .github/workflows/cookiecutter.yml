@@ -53,7 +53,7 @@ jobs:
           export REPO_NAME=$(echo $INFO | jq -r '.repository.name')
           
           # login to gh cli
-          echo ${{ secrets.GH_PAT }} > ghpat.txt
+          echo "$GH_PAT" > ghpat.txt
           gh auth login --with-token < ghpat.txt
           
           # Run cookiecutter

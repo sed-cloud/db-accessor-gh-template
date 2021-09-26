@@ -51,6 +51,10 @@ jobs:
           # Delete this workflow:
           rm -rf .github
           export REPO_NAME=$(echo $INFO | jq -r '.repository.name')
+          
+          # login to gh cli
+          gh auth login --with-token ${{ secrets.GH_PAT }}
+          
           # Run cookiecutter
           cookiecutter gh:sed-cloud/db-accessor-template --no-input \
             package_name=$REPO_NAME \

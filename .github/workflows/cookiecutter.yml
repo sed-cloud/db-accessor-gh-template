@@ -70,7 +70,7 @@ jobs:
           # mv $REPO_NAME/.gitignore .
           # mv $REPO_NAME/.github .
           # Actions are not allowed to create new actions - workaround:
-          mv .github/workflows .github/rename-this-to-workflows
+          # mv .github/workflows .github/rename-this-to-workflows
           # Now remove the empty datasette-x directory:
           # rmdir $REPO_NAME
       - name: Force push new repo contents

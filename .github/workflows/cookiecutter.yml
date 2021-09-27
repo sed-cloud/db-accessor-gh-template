@@ -65,14 +65,14 @@ jobs:
           # TODO: figure out how to do cookiecutter with secrets (probably variable name injection) 
           
           # Move generated content to root directory of repo
-          mv $REPO_NAME/* .
+          # mv $REPO_NAME/* .
           # And .github and .gitignore too:
-          mv $REPO_NAME/.gitignore .
-          mv $REPO_NAME/.github .
+          # mv $REPO_NAME/.gitignore .
+          # mv $REPO_NAME/.github .
           # Actions are not allowed to create new actions - workaround:
           mv .github/workflows .github/rename-this-to-workflows
           # Now remove the empty datasette-x directory:
-          rmdir $REPO_NAME
+          # rmdir $REPO_NAME
       - name: Force push new repo contents
         uses: stefanzweifel/git-auto-commit-action@v4
         with:

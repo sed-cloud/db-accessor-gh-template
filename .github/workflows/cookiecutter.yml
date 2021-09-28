@@ -68,7 +68,7 @@ jobs:
           
           mv $REPO_NAME/.gitignore .gitignore 
           mv $REPO_NAME/.pre-commit.yaml .pre-commit.yaml 
-          #mv $REPO_NAME/.github/workflows/ .github/rename-this-to-workflows/
+          mv $REPO_NAME/.github/workflows/* .github/rename/
           
           #rm -rf $REPO_NAME/
           #mv src/ $REPO_NAME/

@@ -68,10 +68,12 @@ jobs:
           
           mv $REPO_NAME/.gitignore .gitignore 
           mv $REPO_NAME/.pre-commit.yaml .pre-commit.yaml 
+          mkdir .github/
+          mkdir .github/rename/
           mv $REPO_NAME/.github/workflows/* .github/rename/
           
-          #rm -rf $REPO_NAME/
-          #mv src/ $REPO_NAME/
+          rm -rf $REPO_NAME/
+          mv src/ $REPO_NAME/
           
           # And .github and .gitignore too:
           # Actions are not allowed to create new actions - workaround:

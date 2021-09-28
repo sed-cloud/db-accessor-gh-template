@@ -64,11 +64,12 @@ jobs:
           mv $REPO_NAME/$REPO_NAME $REPO_NAME/src
           cd $REPO_NAME
           mv ./* ..
-          # rm -rf $REPO_NAME/
-          # mv src/ $REPO_NAME/
+          cd ..
+          mv $REPO_NAME/.gitignore ../
+          rm -rf $REPO_NAME/
+          mv src/ $REPO_NAME/
+          
           # And .github and .gitignore too:
-          # mv $REPO_NAME/.gitignore ../
-          # mv $REPO_NAME/.github ../
           # Actions are not allowed to create new actions - workaround:
           # mv .github/workflows .github/rename-this-to-workflows
           # Now remove the empty datasette-x directory:

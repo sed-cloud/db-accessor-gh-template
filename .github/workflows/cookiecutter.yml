@@ -84,7 +84,7 @@ jobs:
       - name: fix workflow
         uses: peterjgrainger/action-create-branch@v2.0.1
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
         with:
           branch: 'fix-workflow-folder'
       
@@ -109,9 +109,9 @@ jobs:
       - name: Create fix PR 
         uses: devops-infra/action-pull-request@v0.4.2
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GH_PAT }}
           source_branch: fix-workflow-folder
           target_branch: main
           title: Fixed workflow folder name
-          body: "**Automated pull request**"
+          body: "**Fixed workflow folder**"
           ignore_users: "dependabot"

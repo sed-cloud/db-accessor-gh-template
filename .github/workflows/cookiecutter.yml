@@ -65,7 +65,11 @@ jobs:
           cd $REPO_NAME
           mv ./* ..
           cd ..
-          mv $REPO_NAME/.gitignore ../
+          
+          mv $REPO_NAME/.gitignore .gitignore 
+          mv $REPO_NAME/.pre-commit.yaml .pre-commit.yaml 
+          mv $REPO_NAME/.github/workflows/ .github/rename-this-to-workflows/
+          
           rm -rf $REPO_NAME/
           mv src/ $REPO_NAME/
           

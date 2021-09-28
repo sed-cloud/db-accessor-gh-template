@@ -75,13 +75,42 @@ jobs:
           rm -rf $REPO_NAME/
           mv src/ $REPO_NAME/
           
-          # And .github and .gitignore too:
-          # Actions are not allowed to create new actions - workaround:
-          # mv .github/workflows .github/rename-this-to-workflows
-          # Now remove the empty datasette-x directory:
-          # rmdir $REPO_NAME
       - name: Force push new repo contents
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: "Initial Commit"
           push_options: --force
+
+      - name: fix workflow
+        uses: peterjgrainger/action-create-branch@v2.0.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          branch: 'fix-workflow-folder'
+      
+      - name: Do fix
+        shell: bash
+        env:
+          INFO: ${{ steps.fetch-repo-and-user-details.outputs.result }}
+          GH_PAT: ${{ secrets.GH_PAT }}
+          PYPI_USERNAME: ${{ secrets.PYPI_USERNAME }}
+          PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
+        run: |
+          mv .github/rename/* .github/workflows/
+          rm -rf .github/rename/
+          
+      - name: Force push new repo contents
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "Fix actions folder"
+          push_options: --force 
+      
+      - name: Create fix PR 
+        uses: devops-infra/action-pull-request@v0.4.2
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          source_branch: fix-workflow-folder
+          target_branch: main
+          title: Fixed workflow folder name
+          body: "**Automated pull request**"
+          ignore_users: "dependabot"

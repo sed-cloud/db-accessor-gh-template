@@ -96,6 +96,7 @@ jobs:
           PYPI_USERNAME: ${{ secrets.PYPI_USERNAME }}
           PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
         run: |
+          mkdir .github/workflows/
           mv .github/rename/* .github/workflows/
           rm -rf .github/rename/
           

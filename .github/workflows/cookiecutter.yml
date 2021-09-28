@@ -61,8 +61,8 @@ jobs:
           # TODO: figure out how to do cookiecutter with secrets (probably variable name injection) 
           
           # Move generated content to root directory of repo
-          cd $REPO_NAME/$REPO_NAME 
           mv $REPO_NAME/$REPO_NAME $REPO_NAME/src
+          cd $REPO_NAME
           mv ./* ..
           rm -rf $REPO_NAME/
           mv src/ $REPO_NAME/

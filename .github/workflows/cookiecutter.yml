@@ -64,8 +64,8 @@ jobs:
           mv $REPO_NAME/$REPO_NAME $REPO_NAME/src
           cd $REPO_NAME
           mv ./* ..
-          rm -rf $REPO_NAME/
-          mv src/ $REPO_NAME/
+          # rm -rf $REPO_NAME/
+          # mv src/ $REPO_NAME/
           # And .github and .gitignore too:
           # mv $REPO_NAME/.gitignore ../
           # mv $REPO_NAME/.github ../

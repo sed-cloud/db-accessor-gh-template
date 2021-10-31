@@ -62,8 +62,8 @@ jobs:
           
           # Move generated content to root directory of repo
           mv $REPO_NAME/$REPO_NAME $REPO_NAME/src
+          mv $REPO_NAME/alembic $REPO_NAME/alembic_
           cd $REPO_NAME
-          echo `ls`
           mv ./* ..
           cd ..
           

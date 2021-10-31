@@ -58,7 +58,7 @@ jobs:
             package_name=$REPO_NAME \
             database_name=$REPO_NAME
           
-          # TODO: figure out how to do cookiecutter with secrets (probably variable name injection) 
+          chmod -R 777 $REPO_NAME/$REPO_NAME
           
           # Move generated content to root directory of repo
           mv $REPO_NAME/$REPO_NAME $REPO_NAME/src

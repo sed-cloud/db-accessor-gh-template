@@ -58,7 +58,7 @@ jobs:
             package_name=$REPO_NAME \
             database_name=$REPO_NAME
           
-          chmod -R 777 $REPO_NAME/alembic
+          sudo chmod -R 777 $REPO_NAME/alembic
           
           # Move generated content to root directory of repo
           mv $REPO_NAME/$REPO_NAME $REPO_NAME/src

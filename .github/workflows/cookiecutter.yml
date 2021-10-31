@@ -63,6 +63,7 @@ jobs:
           # Move generated content to root directory of repo
           mv $REPO_NAME/$REPO_NAME $REPO_NAME/src
           cd $REPO_NAME
+          echo `ls`
           mv ./* ..
           cd ..
           

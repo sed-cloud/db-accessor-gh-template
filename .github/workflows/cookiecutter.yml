@@ -60,7 +60,7 @@ jobs:
           
           sudo chmod -R 777 $REPO_NAME/alembic
           
-          sed -i -e 's/from alembic import context/from alembic import context\nfrom $REPO_NAME.database import Base/g' $REPO_NAME/alembic/env.py
+          sed -i -e 's/from alembic import context/from alembic import context\nfrom '$REPO_NAME'.database import Base/g' $REPO_NAME/alembic/env.py
           sed -i -e 's/target_metadata = None/target_metadata = Base.metadata/g' $REPO_NAME/alembic/env.py
           
           # Move generated content to root directory of repo
